@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Identifier</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="School Logo" class="logo">
+    <h1>Animal Identifier</h1>
+    <p class="department">College of Business, University of Louisville</p>
+    <p>Upload an image or provide a URL to identify the animal</p>
+  </header>
+  <div class="container">
+    <form method="POST" enctype="multipart/form-data">
+      <label for="file">Select image to upload:</label>
+      <input type="file" name="file" id="file">
+      <p>Or</p>
+      <label for="url">Enter an image URL:</label>
+      <input type="url" name="url" id="url">
+      <input type="submit" value="Identify Animal">
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </div>
+  <footer>
+    <p>Powered by The Deep Learning Data Team</p>
+  </footer>
+</body>
+</html>

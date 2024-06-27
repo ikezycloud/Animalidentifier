@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Identifier - Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="School Logo" class="logo">
+    <h1>Animal Identifier</h1>
+    <p>Here is the identified animal!</p>
+    <p class="department">College of Business, University of Louisville</p>
+  </header>
+  <div class="container">
+    <p>Predicted Label: <strong>{{ label }}</strong></p>
+    <p>Model Accuracy: <strong>{{ accuracy * 100 }}%</strong></p>
+    <img src="{{ img_path }}" alt="Identified Animal">
+    <br><br>
+    <a href="{{ url_for('upload_file') }}">Upload another image</a>
+  </div>
+  <footer>
+    <p>Powered by The Deep Learning Data Team</p>
+  </footer>
+</body>
+</html>
